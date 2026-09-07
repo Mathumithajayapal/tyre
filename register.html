@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>GripMaster | Join the Community</title>
+
+  <!-- Tailwind + Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Core Variables - GripMaster Automotive Theme */
+    :root {
+        --accent-color: #EA580C; /* Vibrant Orange */
+        --accent-hover: #C2410C;
+        --text-main: #0F172A; /* Slate 900 */
+        --bg-main: #F8FAFC;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background 0.4s ease, color 0.4s ease;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      /* Automotive Background - High-end garage/tyres */
+      background-image: linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)), url('image/tyreshop (11).jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Logo & Typography Utility Classes */
+    .brand-logo { font-family: 'Inter', sans-serif; color: var(--text-main); }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; text-transform: uppercase; }
+
+    /* LIGHT MODE overrides */
+    body:not(.dark-mode) .card-container {
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 4px 6px -4px rgba(234, 88, 12, 0.2);
+      border: 1px solid #E2E8F0;
+      /* Unique Design Element: Double accent border on top and bottom */
+      border-top: 4px solid var(--accent-color);
+      border-bottom: 4px solid var(--text-main);
+    }
+
+    body:not(.dark-mode) input {
+      background-color: #F8FAFC !important;
+      border: 1px solid #CBD5E1 !important;
+      color: #0F172A !important;
+      font-weight: 500;
+    }
+
+    body:not(.dark-mode) input::placeholder {
+      color: #94A3B8 !important;
+      opacity: 0.8;
+      font-weight: 400;
+    }
+
+    body:not(.dark-mode) input:focus {
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+      background-color: #ffffff !important;
+    }
+
+    body:not(.dark-mode) label {
+      color: #334155 !important;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* DARK MODE overrides */
+    body.dark-mode {
+      background-image: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url('image/tyreshop (12).jpg');
+    }
+
+    body.dark-mode .brand-logo {
+      color: #F8FAFC !important;
+    }
+
+    body.dark-mode .card-container {
+      background-color: rgba(15, 23, 42, 0.95) !important;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      border: 1px solid #334155;
+      /* Unique Design Element */
+      border-top: 4px solid var(--accent-color);
+      border-bottom: 4px solid #F8FAFC;
+    }
+
+    body.dark-mode input {
+      background-color: #020617 !important;
+      border: 1px solid #334155 !important;
+      color: #F8FAFC !important;
+    }
+
+    body.dark-mode input::placeholder {
+      color: #64748B !important;
+    }
+
+    body.dark-mode input:focus {
+      border-color: var(--accent-color) !important;
+      box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.25);
+      background-color: #0F172A !important;
+    }
+
+    body.dark-mode label {
+      color: #E2E8F0 !important;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Social button base styling */
+    .social-auth-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border-radius: 0.5rem; /* Sharper automotive edge */
+    }
+    
+    /* Light mode - social */
+    body:not(.dark-mode) .social-auth-btn {
+      background-color: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+    
+    body:not(.dark-mode) .social-auth-btn:hover {
+      background-color: #F1F5F9;
+      border-color: var(--accent-color);
+    }
+    
+    body:not(.dark-mode) .google-icon { color: #4285F4; }
+    body:not(.dark-mode) .instagram-icon { color: #E4405F; }
+    body:not(.dark-mode) .apple-icon { color: #0F172A; }
+    
+    /* Dark mode - social */
+    body.dark-mode .social-auth-btn {
+      background-color: #1E293B;
+      border-color: #334155;
+    }
+    
+    body.dark-mode .social-auth-btn:hover {
+      background-color: #0F172A;
+      border-color: var(--accent-color);
+    }
+    
+    body.dark-mode .google-icon { color: #4285F4; }
+    body.dark-mode .instagram-icon { color: #E4405F; }
+    body.dark-mode .apple-icon { color: #ffffff; }
+    
+    /* Button text styling */
+    .social-auth-btn .btn-text { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+    body:not(.dark-mode) .social-auth-btn .btn-text { color: #0F172A; }
+    body.dark-mode .social-auth-btn .btn-text { color: #F8FAFC; }
+
+    /* Card styling - Exact structural matching */
+    /* Extracted matching constraints[cite: 2] */
+    .card-container {
+      transition: background-color 0.4s ease, box-shadow 0.4s;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 0.5rem; /* Sharper automotive edge */
+      margin: 0 auto;
+      overflow: visible;
+    }
+
+    .rtl-flip {
+      transform: scaleX(-1);
+      display: inline-block;
+    }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    .submit-arrow {
+      transition: transform 0.2s ease;
+    }
+
+    /* Password wrapper matching constraints[cite: 2] */
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    /* FIXED TOGGLE BUTTONS OUTSIDE CARD */
+    .fixed-toggles {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 12px;
+      background: rgba(248, 250, 252, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 8px 14px;
+      border-radius: 60px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      border: 1px solid #E2E8F0;
+      transition: all 0.2s ease;
+    }
+    
+    body.dark-mode .fixed-toggles {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: #334155;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+    
+    .toggle-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    
+    body.dark-mode .toggle-btn {
+      color: #F8FAFC;
+    }
+    
+    .toggle-btn:hover {
+      background: var(--accent-color);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    body.rtl .fixed-toggles {
+      right: auto;
+      left: 20px;
+    }
+    
+    /* SIGN UP BUTTON matching constraints[cite: 2] */
+    #submitBtn {
+      min-height: 52px;
+      background: var(--accent-color);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #submitBtn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+    
+    .btn-content {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    
+    /* Input element matching constraints[cite: 2] */
+    input {
+      width: 100%;
+      font-size: 15px !important;
+      padding: 12px 16px !important;
+      border-radius: 0.5rem !important; /* Adjusted border radius for GripMaster */
+    }
+    
+    label {
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+    
+    /* ===== DESKTOP OPTIMIZATION =====[cite: 2] */
+    @media (min-width: 1024px) {
+      body { padding: 20px; }
+      .card-container { max-width: 480px; }
+      .card-container > div { padding: 1.75rem !important; }
+      .space-y-6 > * + * { margin-top: 1rem; }
+      .mb-8 { margin-bottom: 1.25rem; }
+      .my-8 { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+      .mt-8 { margin-top: 1rem; }
+      .mt-6 { margin-top: 1rem; }
+      .py-4 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+      h2.text-2xl { font-size: 1.5rem !important; }
+      .text-sm { font-size: 0.8rem; }
+    }
+    
+    /* ===== RESPONSIVE ADJUSTMENTS FOR MOBILE =====[cite: 2] */
+    @media (max-width: 768px) {
+      body { padding: 70px 16px 20px 16px; }
+      .card-container { max-width: 100%; }
+      .card-container > div { padding: 1.25rem !important; }
+      .fixed-toggles { top: 12px; right: 12px; padding: 6px 10px; gap: 8px; }
+      body.rtl .fixed-toggles { right: auto; left: 12px; }
+      .toggle-btn { width: 36px; height: 36px; }
+      #submitBtn { min-height: 48px; font-size: 0.9rem; }
+      h2.text-2xl { font-size: 1.35rem !important; }
+      input { padding: 10px 14px !important; }
+      .social-auth-btn .btn-text { display: none; }
+    }
+    
+    @media (max-width: 480px) {
+      body { padding: 68px 12px 16px 12px; }
+      .card-container > div { padding: 1rem !important; }
+      .fixed-toggles { top: 10px; right: 10px; padding: 5px 8px; }
+      .toggle-btn { width: 34px; height: 34px; font-size: 0.85rem; }
+      .btn-content { white-space: normal; text-align: center; }
+      #submitBtn { min-height: 46px; font-size: 0.85rem; }
+      .space-y-6 > * + * { margin-top: 0.875rem; }
+    }
+    
+    @media (max-width: 360px) {
+      body { padding: 64px 10px 16px 10px; }
+      .grid-cols-2 { gap: 8px; }
+      #submitBtn { min-height: 44px; font-size: 0.8rem; }
+    }
+    
+    /* Landscape mode constraints[cite: 2] */
+    @media (max-height: 700px) and (orientation: landscape) {
+      body { padding: 50px 20px 20px 20px; }
+      .card-container { max-height: calc(100vh - 70px); overflow-y: auto; }
+      .card-container::-webkit-scrollbar { width: 4px; }
+      .card-container::-webkit-scrollbar-track { background: #E2E8F0; border-radius: 4px; }
+      body.dark-mode .card-container::-webkit-scrollbar-track { background: #334155; }
+      .card-container::-webkit-scrollbar-thumb { background: #EA580C; border-radius: 4px; }
+    }
+    
+    /* Social buttons grid matching constraints[cite: 2] */
+    .grid-cols-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .grid-cols-3 button { transition: all 0.2s ease; }
+    .grid-cols-3 button:hover { transform: translateY(-2px); }
+    .social-auth-btn i { font-size: 1.2rem; }
+
+    /* Divider text contrast overrides */
+    .text-slate-500 { color: #64748B !important; }
+    body.dark-mode .text-slate-500 { color: #94A3B8 !important; }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED TOGGLE BUTTONS OUTSIDE CARD -->
+  <div class="fixed-toggles">
+    <button id="darkModeToggle" class="toggle-btn" aria-label="Dark/Light mode">
+      <svg id="darkModeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    </button>
+    <button id="rtlToggle" class="toggle-btn" aria-label="RTL/LTR mode">
+      <span id="rtlIconText">LTR</span>
+    </button>
+  </div>
+
+  <!-- MAIN CARD -->
+  <div id="mainCard" class="card-container rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
+    <!-- Structure exactly follows the layout provided in[cite: 2] -->
+    <div class="p-6 sm:p-7">
+      
+      <!-- IDENTICAL BRAND HEADER - Exactly 100% same size & spacing as requested -->
+      <div class="flex items-center justify-center mb-6 pb-5 border-b border-slate-200/60 dark:border-slate-700/60">
+        <a href="index.html" class="text-3xl font-medium brand-logo tracking-wide block" style="text-decoration: none;">
+            <i class="fas fa-dharmachakra" style="color: var(--accent-color); margin-right: 0.2em; font-size: 0.9em; vertical-align: middle;"></i>GripMaster
+        </a>
+      </div>
+
+      <!-- Welcome section[cite: 2] -->
+      <div class="mb-5 text-center">
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight brand-logo">Join GripMaster</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-xs md:text-sm mt-2 font-medium">Create an account to manage your vehicles & bookings</p>
+      </div>
+
+      <!-- Sign-up Form (Exact sizes as template[cite: 2]) -->
+      <form id="signupForm" class="space-y-4">
+        <!-- Full Name -->
+        <div>
+          <label class="block text-xs font-bold mb-1.5">Full name</label>
+          <input type="text" name="fullname" id="fullname" required 
+                 placeholder="Driver Name" 
+                 class="w-full px-4 py-2.5 rounded-xl border transition-all duration-200 text-sm font-medium">
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <label class="block text-xs font-bold mb-1.5">Email address</label>
+          <input type="email" name="email" id="email" required 
+                 placeholder="driver@gripmaster.com" 
+                 class="w-full px-4 py-2.5 rounded-xl border transition-all duration-200 text-sm font-medium">
+        </div>
+
+        <!-- Password -->
+        <div class="password-wrapper relative">
+          <label class="block text-xs font-bold mb-1.5">Password</label>
+          <input type="password" name="password" id="password" required 
+                 placeholder="••••••••" 
+                 class="w-full px-4 py-2.5 pr-10 rounded-xl border transition-all duration-200 text-sm font-medium">
+          <i class="fa-solid fa-eye absolute right-3 bottom-3 cursor-pointer" style="color: var(--accent-color);" id="togglePassword"></i>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="password-wrapper relative">
+          <label class="block text-xs font-bold mb-1.5">Confirm Password</label>
+          <input type="password" name="confirm_password" id="confirm_password" required 
+                 placeholder="Confirm ••••••••" 
+                 class="w-full px-4 py-2.5 pr-10 rounded-xl border transition-all duration-200 text-sm font-medium">
+          <i class="fa-solid fa-eye absolute right-3 bottom-3 cursor-pointer" style="color: var(--accent-color);" id="toggleConfirm"></i>
+        </div>
+
+        <!-- Terms & Conditions Checkbox -->
+        <div class="flex items-start gap-2 mt-1">
+          <input type="checkbox" id="termsCheckbox" class="mt-0.5 w-3.5 h-3.5 rounded border-slate-300 text-[#EA580C] focus:ring-[#EA580C]/40 focus:ring-2 cursor-pointer">
+          <label for="termsCheckbox" class="text-xs font-medium cursor-pointer select-none leading-relaxed" style="color: inherit; text-transform: none; letter-spacing: normal;">
+            I agree to the 
+            <a href="#" id="termsLink" class="font-semibold hover:underline" style="color: var(--accent-color);">Terms</a> 
+            and 
+            <a href="#" id="privacyLink" class="font-semibold hover:underline" style="color: var(--accent-color);">Privacy Policy</a>
+          </label>
+        </div>
+
+        <!-- Sign Up Button placement & structure from template[cite: 2] -->
+        <button type="submit" id="submitBtn"
+                class="w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group mt-3 cursor-pointer">
+          <span class="btn-content">Create Account <span class="text-base submit-arrow transition-transform group-hover:translate-x-1">→</span></span>
+        </button>
+      </form>
+
+      <!-- Divider[cite: 2] -->
+      <div class="my-5 flex items-center gap-3">
+        <div class="flex-1 h-px bg-slate-200 dark:bg-slate-700"></div>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Or sign up with</span>
+        <div class="flex-1 h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+
+      <!-- Social Sign Up Buttons placement[cite: 2] -->
+      <div class="grid grid-cols-3 gap-3">
+        <!-- Google -->
+        <button id="googleBtn" class="social-auth-btn border py-2.5 shadow-sm transition-all duration-200">
+          <i class="fa-brands fa-google google-icon"></i>
+          <span class="btn-text">Google</span>
+        </button>
+
+        <!-- Instagram -->
+        <button id="instagramBtn" class="social-auth-btn border py-2.5 shadow-sm transition-all duration-200">
+          <i class="fa-brands fa-instagram instagram-icon"></i>
+          <span class="btn-text">Instagram</span>
+        </button>
+
+        <!-- Apple -->
+        <button id="appleBtn" class="social-auth-btn border py-2.5 shadow-sm transition-all duration-200">
+          <i class="fa-brands fa-apple apple-icon"></i>
+          <span class="btn-text">Apple</span>
+        </button>
+      </div>
+
+      <!-- Login Redirect Link[cite: 2] -->
+      <p class="text-center text-xs font-medium mt-5" style="color: inherit; opacity: 0.8;">
+        Already have an account?
+        <a href="login.html" id="loginLink" class="font-extrabold hover:underline ml-1" style="color: var(--accent-color); opacity: 1;">Login →</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Dark Mode Logic
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const body = document.body;
+      const htmlElement = document.documentElement;
+
+      const savedDark = localStorage.getItem('gripmaster_dark');
+      if (savedDark === 'enabled') {
+        body.classList.add('dark-mode');
+        updateDarkIcon(true);
+      } else {
+        body.classList.remove('dark-mode');
+        updateDarkIcon(false);
+      }
+
+      function updateDarkIcon(isDark) {
+        const iconSvg = document.getElementById('darkModeIcon');
+        if (isDark) {
+          iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />';
+        } else {
+          iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+        }
+      }
+
+      darkModeToggle.addEventListener('click', () => {
+        const isDarkNow = body.classList.toggle('dark-mode');
+        localStorage.setItem('gripmaster_dark', isDarkNow ? 'enabled' : 'disabled');
+        updateDarkIcon(isDarkNow);
+      });
+
+      // RTL / LTR Toggle
+      const rtlToggleBtn = document.getElementById('rtlToggle');
+      const rtlIconSpan = document.getElementById('rtlIconText');
+      
+      function applyDirection(dir) {
+        if (dir === 'rtl') {
+          htmlElement.setAttribute('dir', 'rtl');
+          body.classList.add('rtl');
+          rtlIconSpan.innerText = 'RTL';
+          localStorage.setItem('gripmaster_rtl', 'enabled');
+          const arrowSpan = document.querySelector('.submit-arrow');
+          if (arrowSpan) arrowSpan.classList.add('rtl-flip');
+        } else {
+          htmlElement.setAttribute('dir', 'ltr');
+          body.classList.remove('rtl');
+          rtlIconSpan.innerText = 'LTR';
+          localStorage.setItem('gripmaster_rtl', 'disabled');
+          const arrowSpan = document.querySelector('.submit-arrow');
+          if (arrowSpan) arrowSpan.classList.remove('rtl-flip');
+        }
+      }
+      
+      const savedDir = localStorage.getItem('gripmaster_rtl');
+      if (savedDir === 'enabled') applyDirection('rtl');
+      else applyDirection('ltr');
+      
+      rtlToggleBtn.addEventListener('click', () => {
+        const currentDir = htmlElement.getAttribute('dir');
+        const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+        applyDirection(newDir);
+      });
+      
+      // Form Validation[cite: 2]
+      const form = document.getElementById('signupForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const fullnameInput = document.getElementById('fullname');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmInput = document.getElementById('confirm_password');
+      const termsCheckbox = document.getElementById('termsCheckbox');
+      
+      const originalBtnHTML = submitBtn.innerHTML;
+      
+      function showBtnMessage(message, isError = true) {
+        if (isError) {
+          submitBtn.innerHTML = `<span class="btn-content">⚠️ ${message}</span>`;
+          submitBtn.style.background = '#dc2626';
+        } else {
+          submitBtn.innerHTML = `<span class="btn-content">✓ ${message}</span>`;
+          submitBtn.style.background = '#16a34a';
+        }
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnHTML;
+          submitBtn.style.background = 'var(--accent-color)';
+        }, 2400);
+      }
+      
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const fullname = fullnameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const confirm = confirmInput.value;
+        const termsAccepted = termsCheckbox.checked;
+        
+        if (!fullname) {
+          showBtnMessage('Full name is required', true);
+          fullnameInput.focus();
+          return;
+        }
+        if (!email) {
+          showBtnMessage('Email address required', true);
+          emailInput.focus();
+          return;
+        }
+        if (!email.includes('@') || !email.includes('.')) {
+          showBtnMessage('Enter a valid email', true);
+          emailInput.focus();
+          return;
+        }
+        if (!password) {
+          showBtnMessage('Please create a password', true);
+          passwordInput.focus();
+          return;
+        }
+        if (password.length < 6) {
+          showBtnMessage('Password must be at least 6 characters', true);
+          passwordInput.focus();
+          return;
+        }
+        if (password !== confirm) {
+          showBtnMessage('Passwords do not match', true);
+          confirmInput.focus();
+          return;
+        }
+        if (!termsAccepted) {
+          showBtnMessage('You must accept Terms & Privacy Policy', true);
+          termsCheckbox.focus();
+          return;
+        }
+        
+        showBtnMessage('Account created! Redirecting...', false);
+        setTimeout(() => {
+          form.reset();
+          window.location.href = "login.html";
+        }, 1500);
+      });
+      
+      // Social auth demo
+      document.getElementById('googleBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🔐 Google Sign-Up: Connect your Google account to GripMaster.');
+      });
+      
+      document.getElementById('instagramBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('📸 Instagram Sign-Up: Connect your Instagram account.');
+      });
+      
+      document.getElementById('appleBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🍎 Apple Sign-Up: Secure sign-in with Apple ID.');
+      });
+      
+      // Links demo
+      document.getElementById('termsLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('GripMaster Terms of Service: Repair policies, warranty details, and booking terms.');
+      });
+      
+      document.getElementById('privacyLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('GripMaster Privacy Policy: Your vehicle data is secure and never shared without consent.');
+      });
+    })();
+    
+    // Password toggle functionality[cite: 2]
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    
+    if (togglePassword && passwordInput) {
+      togglePassword.addEventListener('click', () => {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        togglePassword.classList.toggle('fa-eye');
+        togglePassword.classList.toggle('fa-eye-slash');
+      });
+    }
+    
+    // Confirm password toggle[cite: 2]
+    const toggleConfirm = document.getElementById('toggleConfirm');
+    const confirmInput = document.getElementById('confirm_password');
+    
+    if (toggleConfirm && confirmInput) {
+      toggleConfirm.addEventListener('click', () => {
+        const type = confirmInput.type === 'password' ? 'text' : 'password';
+        confirmInput.type = type;
+        toggleConfirm.classList.toggle('fa-eye');
+        toggleConfirm.classList.toggle('fa-eye-slash');
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & Support - GripMaster Tyre Shop</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            heading: ['\"Inter\"', 'sans-serif'],
+            },
+            fontWeight: {
+            light: '300',
+            regular: '400',
+            medium: '500',
+            semibold: '600',
+            }
+        }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET & CORE === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5, h6, .brand-logo {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* === THEME VARIABLES (Automotive / Tyre Shop Palette) === */
+        :root {
+            --bg-color: #F8FAFC; 
+            --bg-secondary: #F1F5F9; 
+            --bg-card: #FFFFFF; 
+            --bg-inverted: #0F172A; 
+            --text-main: #0F172A; 
+            --text-muted: #64748B;
+            --accent-color: #EA580C; /* Vibrant Orange */
+            --accent-dark: #C2410C;  
+            --border-color: #E2E8F0;
+            --nav-bg: #F8FAFC;
+            --drawer-bg: rgba(248, 250, 252, 0.98);
+            --menu-hover-bg: rgba(234, 88, 12, 0.08); 
+        }
+
+        /* DARK MODE */
+        body.dark-mode {
+            --bg-color: #0F172A; 
+            --bg-secondary: #1E293B; 
+            --bg-card: #162032; 
+            --bg-inverted: #020617; 
+            --text-main: #F8FAFC; 
+            --text-muted: #94A3B8;
+            --accent-color: #F97316; 
+            --accent-dark: #EA580C; 
+            --border-color: #334155;
+            --nav-bg: #0F172A;
+            --drawer-bg: rgba(15, 23, 42, 0.98);
+            --menu-hover-bg: rgba(249, 115, 22, 0.1); 
+        }
+
+        /* RTL SUPPORT */
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
+        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+
+        @keyframes subtleZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        .animate-zoom { animation: subtleZoom 25s infinite alternate ease-in-out; }
+
+        /* === NAVBAR DESIGN === */
+        .navbar { 
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--nav-bg); 
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 32px; height: 90px; display: flex; align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        .navbar.scrolled { 
+            height: 75px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05); 
+            background: var(--drawer-bg);
+            backdrop-filter: blur(10px);
+        }
+        body.dark-mode .navbar.scrolled { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8); }
+        
+        .nav-link { 
+            position: relative; padding: 10px 20px; margin: 0 4px; color: var(--text-main); 
+            text-decoration: none; font-size: 14px; font-weight: 400; text-transform: uppercase;
+            letter-spacing: 1px; transition: all 0.3s ease; display: inline-flex; 
+            align-items: center; justify-content: center; gap: 6px; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-link::after { 
+            content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 3px;
+            background: var(--accent-color); transition: all 0.3s ease; transform: translateX(-50%);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-color); }
+        
+        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .dropdown-menu { position: absolute; top: 70px; left: 0; transform: translateY(15px); opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; }
+        .navbar.scrolled .dropdown-menu { top: 60px; }
+        .dropdown-inner { 
+            background: var(--bg-card); border: 1px solid var(--border-color); border-top: 3px solid var(--accent-color);
+            min-width: 220px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+            padding: 8px 0; display: flex; flex-direction: column; 
+        }
+        body.dark-mode .dropdown-inner { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        
+        .dropdown-item { 
+            display: block; padding: 12px 24px; color: var(--text-main); text-decoration: none; 
+            font-size: 13px; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; 
+            transition: all 0.3s; text-align: left; white-space: nowrap; font-family: 'Inter', sans-serif;
+        }
+        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); padding-left: 28px; }
+        [dir="rtl"] .dropdown-item:hover { padding-left: 24px; padding-right: 28px; }
+
+        /* PILL TOGGLE */
+        .theme-toggle-pill { width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; border: 1px solid var(--border-color); }
+        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill .fa-sun { color: #EA580C; }
+        .theme-toggle-pill .fa-moon { color: #64748B; }
+        .theme-toggle-pill .thumb { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 2; border: 1px solid var(--border-color);}
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #334155; border-color: var(--border-color); }
+
+        /* RTL BUTTON STYLE */
+        .rtl-btn-style {
+            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 4px; border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 400; cursor: pointer;
+            color: var(--text-main); transition: all 0.3s ease; font-family: 'Inter', sans-serif;
+        }
+        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        /* === BUTTON DESIGN === */
+        .btn { 
+            padding: 14px 32px; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; 
+            transition: all 0.4s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
+            border: 1px solid transparent; font-family: 'Inter', sans-serif; border-radius: 2px;
+        }
+        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; }
+        .btn-solid:hover { background: var(--accent-dark); }
+        .btn-outline { background: transparent; border: 2px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color) !important; }
+
+        /* MOBILE OVERLAY & DRAWER */
+        .drawer-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.4s ease; backdrop-filter: blur(5px); }
+        .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+        .fullscreen-menu { 
+            position: fixed; top: 0; right: 0; width: 100%; max-width: 420px; height: 100dvh; background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column; 
+            opacity: 0; visibility: hidden; transform: translateX(100%); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid var(--border-color);
+        }
+        [dir="rtl"] .fullscreen-menu { right: auto; left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border-color); }
+        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: translateX(0); }
+        
+        .mobile-link { display: block; width: 100%; padding: 18px 32px; font-size: 1.25rem; font-family: 'Inter', sans-serif; font-weight: 400; text-transform: uppercase; color: var(--text-main); text-decoration: none; transition: all 0.3s; border-bottom: 1px solid var(--border-color); }
+        .mobile-link:hover { color: var(--accent-color); padding-left: 40px; background: var(--menu-hover-bg); border-left: 4px solid var(--accent-color); }
+        [dir="rtl"] .mobile-link:hover { padding-left: 32px; padding-right: 40px; border-left: none; border-right: 4px solid var(--accent-color); }
+
+        /* FAQ ACCORDION STYLES */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            opacity: 1;
+        }
+        .faq-icon {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* FOOTER */
+        footer { background: var(--bg-inverted); border-top: 1px solid var(--border-color); padding-top: 80px; color: white; }
+        footer h4 { color: white; font-family: 'Inter', sans-serif; font-size: 1.2rem; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; font-weight: 400; } 
+        footer a, footer li, footer span { color: #94A3B8; text-decoration: none; transition: all 0.3s; font-size: 0.95rem; font-weight: 300; }
+        footer a:hover { color: var(--accent-color); }
+        .social-link-circle { width: 44px; height: 44px; border-radius: 2px; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: white; background: transparent; }
+        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; }
+        .footer-bottom { border-top: 1px solid #334155; padding: 32px 0; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR PART -->
+    <nav class="navbar" id="main-nav">
+        <div class="w-full flex items-center justify-between max-w-[1440px] mx-auto">
+            <div class="flex items-center">
+                <a href="index.html" class="text-3xl font-medium brand-logo tracking-wide block" style="color: var(--text-main) !important; text-decoration: none;">
+                    <i class="fas fa-dharmachakra" style="color: var(--accent-color); margin-right: 0.2em; font-size: 0.9em; vertical-align: middle;"></i>GripMaster
+                </a>
+            </div>
+            
+            <div class="hidden xl:flex justify-center items-center flex-1">
+                <div class="dropdown">
+                    <div class="nav-link">Home <i class="fas fa-chevron-down text-[10px] ml-1"></i></div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            <a href="index.html" class="dropdown-item">Home Page 1</a>
+                            <a href="home-2.html" class="dropdown-item">Home Page 2</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <div class="hidden xl:flex items-center gap-5">
+                <div id="theme-toggle-desktop" class="theme-toggle-pill" title="Toggle Dark Mode">
+                    <i class="fas fa-sun"></i><i class="fas fa-moon"></i><div class="thumb"></div>
+                </div>
+                <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
+                <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
+                <a href="login.html" class="btn btn-solid !py-2.5 !px-6 !text-[12px]">Login</a>
+            </div>
+
+            <div class="xl:hidden flex items-center justify-end gap-4">
+                <button id="mobile-btn" class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HAMBURGER MENU PART -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <div class="fullscreen-menu" id="fullscreen-menu">
+        <div class="w-full px-8 py-8 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
+            <a href="index.html" class="text-2xl font-medium brand-logo tracking-wide block" style="color: var(--text-main) !important; text-decoration: none;">
+                    <i class="fas fa-dharmachakra" style="color: var(--accent-color); margin-right: 0.2em; font-size: 0.9em; vertical-align: middle;"></i>GripMaster
+            </a>
+            <button id="close-menu" class="w-10 h-10 flex items-center justify-center transition-all text-2xl text-[var(--text-main)] hover:text-[var(--accent-color)]">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="flex flex-col w-full overflow-y-auto flex-1 py-4">
+            <a href="index.html" class="mobile-link">Home Page 1</a>
+            <a href="home-2.html" class="mobile-link">Home Page 2</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="services.html" class="mobile-link">Services</a>
+            <a href="pricing.html" class="mobile-link">Pricing</a>
+            <a href="blog.html" class="mobile-link">Blog</a>
+            <a href="faq.html" class="mobile-link" style="color: var(--accent-color); border-left: 4px solid var(--accent-color);">FAQ</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+        </div>
+
+        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+            <div class="flex justify-between items-center w-full">
+                <div class="flex items-center gap-3">
+                    <span class="text-[var(--text-muted)] font-normal text-[12px] uppercase tracking-widest font-heading">Theme</span>
+                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i class="fas fa-moon"></i><div class="thumb"></div></div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-[var(--text-muted)] font-normal text-[12px] uppercase tracking-widest font-heading">Dir</span>
+                    <button id="rtl-toggle-mobile" class="rtl-btn-style">LTR</button>
+                </div>
+            </div>
+            <div class="flex gap-4 w-full">
+                <a href="login.html" class="btn btn-outline flex-1 !py-3 !border-2">Login</a>
+                <a href="register.html" class="btn btn-solid flex-1 !py-3">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO BANNER PART -->
+    <section class="relative w-full min-h-[60vh] pt-32 pb-20 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)]">
+        <div class="absolute inset-0 z-0 bg-black">
+            <!-- FAQ/Support themed background image -->
+            <img src="image/tyreshop (1).jpg" alt="Customer service and support" class="w-full h-full object-cover animate-zoom opacity-40" />
+            <div class="absolute inset-0 bg-gradient-to-r from-[var(--bg-inverted)] via-black/70 to-transparent"></div>
+        </div>
+
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full flex flex-col items-start justify-center relative z-10">
+            <div class="max-w-3xl">
+                <span class="text-[var(--accent-color)] text-sm font-medium uppercase tracking-[0.2em] mb-4 inline-block bg-[var(--bg-inverted)]/50 px-4 py-2 border-l-4 border-[var(--accent-color)]">
+                    <i class="fas fa-question-circle mr-2"></i> Support & Guidance
+                </span>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] mb-6 text-white uppercase tracking-tight">
+                    Frequently Asked <br class="hidden sm:block">
+                    <span class="text-[var(--accent-color)]">Questions.</span>
+                </h1>
+                
+                <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl font-light mb-10 drop-shadow-md">
+                    Find quick answers to common queries about tyre maintenance, wheel alignment processes, warranties, and our booking policies.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="contact.html" class="btn btn-solid !py-4 !px-10 text-center">
+                        <i class="fas fa-headset mr-2"></i> Contact Support
+                    </a>
+                    <a href="services.html" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black !py-4 !px-10 text-center">
+                        <i class="fas fa-cogs mr-2"></i> View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: GENERAL & BOOKING QUERIES -->
+    <section class="py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
+        <div class="max-w-[1024px] mx-auto px-6 lg:px-12">
+            <div class="text-center mb-12">
+                <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-3 uppercase font-heading">Section 01</h5>
+                <h2 class="text-3xl lg:text-5xl font-medium uppercase text-[var(--text-main)]">General & Booking Queries</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">How do I book an appointment for my vehicle?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">You can easily book an appointment through our website's Contact or Services pages. Alternatively, you can call us directly at 1-800-555-TYRE. Walk-ins are also welcome, though subject to availability.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">Do I need to pay upfront when booking online?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">No, online bookings are completely free. You only pay once the service has been completed at our garage. We accept all major credit cards, cash, and digital payments on site.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">How long does a standard tyre fitting take?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">A standard fitting for four tyres, including balancing, usually takes about 45 to 60 minutes. If you are also having a laser wheel alignment performed, please allow for an additional 30 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">Do you offer emergency mobile tyre fitting?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">Yes, we provide emergency mobile fitting within a 25-mile radius of our flagship store. A call-out fee applies based on your location and the time of day. Please call our hotline for immediate assistance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">What is your cancellation or rescheduling policy?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">We kindly request at least 24 hours' notice if you need to cancel or reschedule your booking. This allows us to offer the slot to another customer. There are no cancellation fees.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">Do you offer a price match guarantee on new tyres?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">Yes! If you find a cheaper written quote for an identical, in-stock tyre from a local competitor within a 10-mile radius, we will match that price. Terms and conditions apply.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: TYRE CARE & TECHNICAL SUPPORT -->
+    <section class="py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
+        <div class="max-w-[1024px] mx-auto px-6 lg:px-12">
+            <div class="text-center mb-12">
+                <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-3 uppercase font-heading">Section 02</h5>
+                <h2 class="text-3xl lg:text-5xl font-medium uppercase text-[var(--text-main)]">Tyre Care & Technical Support</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">How often should I get my wheels aligned?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">It is recommended to have your wheel alignment checked every 10,000 to 12,000 miles, or at least once a year. You should also get it checked if you hit a large pothole, curb, or notice uneven tyre wear.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">What is the difference between wheel alignment and balancing?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">Alignment adjusts the angles of the wheels so they are parallel to each other and perpendicular to the ground. Balancing involves placing small weights on the rim to ensure the tyre spins without causing vibrations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">How do I know when my tyres need replacing?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">Look for the tread wear indicators (small bars inside the grooves). If the tread is flush with these bars, you have reached the legal limit of 1.6mm. We highly recommend replacing them when they reach 3mm for safety in wet conditions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">Is nitrogen inflation really better than compressed air?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">Nitrogen molecules are larger than oxygen, meaning they escape through the tyre walls at a slower rate. This helps maintain correct tyre pressure longer, which improves fuel economy and tyre lifespan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">Can you repair run-flat tyres?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">Generally, manufacturers do not recommend repairing run-flat tyres because it is difficult to see structural damage that may have occurred while driving on it flat. We assess these on a strict case-by-case basis but mostly recommend replacement.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-[var(--bg-card)] border border-[var(--border-color)] rounded-sm">
+                    <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none hover:text-[var(--accent-color)] transition-colors">
+                        <span class="font-medium text-lg text-[var(--text-main)]">Where can I find the correct tyre pressure for my car?</span>
+                        <i class="fas fa-chevron-down faq-icon text-[var(--text-muted)]"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-[var(--text-muted)] font-light text-sm pb-5 leading-relaxed">The correct pressure is usually located on a placard inside the driver's side door jam, inside the fuel filler cap, or in the vehicle's owner manual. Never use the "Max Pressure" written on the tyre sidewall as your daily driving pressure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PART -->
+    <footer>
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
+                <div class="lg:col-span-4">
+                    <div class="mb-8">
+                        <a href="index.html" class="text-3xl font-medium brand-logo tracking-wide block text-white" style="text-decoration: none;">
+                            <i class="fas fa-dharmachakra" style="color: var(--accent-color); margin-right: 0.2em; font-size: 0.9em; vertical-align: middle;"></i>GripMaster
+                        </a>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-8 max-w-sm font-sans font-light">
+                        Your trusted partner for all wheel and tyre solutions. From top-tier tyre brands to precise alignment technology, we ensure your safety on the road.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link-circle"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                        <div>
+                            <h4>Client Portals</h4>
+                            <ul class="space-y-4">
+                                <li><a href="login.html">Customer Login</a></li>
+                                <li><a href="pricing.html">Service Pricing</a></li>
+                                <li><a href="faq.html">FAQ & Tyre Care</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Our Services</h4>
+                            <ul class="space-y-4">
+                                <li><a href="services.html">Tyre Fitting</a></li>
+                                <li><a href="services.html">Laser Wheel Alignment</a></li>
+                                <li><a href="services.html">Wheel Balancing</a></li>
+                                <li><a href="services.html">Puncture Repair & Nitrogen</a></li>
+                            </ul>
+                        </div>
+                        <div class="sm:col-span-2 md:col-span-1">
+                            <h4>Find Our Branch</h4>
+                            <ul class="space-y-5 text-slate-400 text-sm">
+                                <li class="flex items-start gap-4"><i class="fas fa-map-marker-alt mt-1 shrink-0" style="color: var(--accent-color);"></i><span>128 Auto Hub Parkway<br>Industrial Zone, 90210</span></li>
+                                <li class="flex items-center gap-4"><i class="fas fa-phone shrink-0" style="color: var(--accent-color);"></i><a href="tel:+18005558973" class="break-all hover:text-[var(--accent-color)]">+1 (800) 555-TYRE</a></li>
+                                <li class="flex items-center gap-4"><i class="fas fa-envelope shrink-0" style="color: var(--accent-color);"></i><a href="contact.html" class="break-all hover:text-[var(--accent-color)]">service@gripmaster.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 uppercase tracking-[1px] font-heading font-normal text-slate-500">
+                <p>&copy; 2026 GripMaster Tyres. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Warranty Policy</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVITY SCRIPT -->
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Drawer Logic
+        const mobileBtn = document.getElementById('mobile-btn'); 
+        const fullscreenMenu = document.getElementById('fullscreen-menu'); 
+        const closeMenu = document.getElementById('close-menu'); 
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        
+        function toggleMenu() { 
+            fullscreenMenu.classList.toggle('active'); 
+            drawerOverlay.classList.toggle('active');
+            document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        
+        mobileBtn.onclick = toggleMenu; 
+        closeMenu.onclick = toggleMenu; 
+        drawerOverlay.onclick = toggleMenu; 
+        
+        // Theme Toggle Logic
+        const themeDesktop = document.getElementById('theme-toggle-desktop');
+        const themeMobile = document.getElementById('theme-toggle-mobile'); 
+        const theme = localStorage.getItem('theme') || 'light';
+
+        function updateThemeUI(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode'); 
+                if(themeMobile) themeMobile.classList.add('active');
+            } else {
+                document.body.classList.remove('dark-mode');
+                if(themeMobile) themeMobile.classList.remove('active');
+            }
+        }
+        
+        updateThemeUI(theme === 'dark');
+        
+        function toggleTheme() { 
+            const isDark = !document.body.classList.contains('dark-mode');
+            updateThemeUI(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light'); 
+        }
+        
+        themeDesktop.onclick = toggleTheme; 
+        if(themeMobile) themeMobile.onclick = toggleTheme;
+        
+        // RTL Logic
+        const rtlBtn = document.getElementById('rtl-btn'); 
+        const rtlMobile = document.getElementById('rtl-toggle-mobile'); 
+        const dir = localStorage.getItem('dir') || 'ltr';
+        
+        function updateRTLUI(currentDir) {
+            const isRTL = currentDir === 'rtl';
+            if (rtlBtn) rtlBtn.innerText = isRTL ? 'RTL' : 'LTR';
+            if (rtlMobile) rtlMobile.innerText = isRTL ? 'RTL' : 'LTR';
+        }
+
+        if (dir === 'rtl') { 
+            document.documentElement.dir = 'rtl'; 
+        }
+        updateRTLUI(dir);
+        
+        function toggleRTL() { 
+            const isRTL = document.documentElement.dir === 'rtl'; 
+            const newDir = isRTL ? 'ltr' : 'rtl';
+            document.documentElement.dir = newDir; 
+            localStorage.setItem('dir', newDir); 
+            updateRTLUI(newDir);
+        }
+        
+        if (rtlBtn) rtlBtn.onclick = toggleRTL; 
+        if (rtlMobile) rtlMobile.onclick = toggleRTL;
+
+        // FAQ Accordion Logic
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const parent = this.parentElement;
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('.faq-icon');
+                
+                if(!parent.classList.contains('active')) {
+                    parent.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.style.transform = "rotate(180deg)";
+                    this.style.color = "var(--accent-color)";
+                } else {
+                    parent.classList.remove('active');
+                    answer.style.maxHeight = "0px";
+                    icon.style.transform = "rotate(0deg)";
+                    this.style.color = "";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
