@@ -159,7 +159,7 @@
 
         /* === BUTTON DESIGN === */
         .btn { 
-            padding: 14px 32px; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; 
+            padding: 10px 24px; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; 
             transition: all 0.4s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
             border: 1px solid transparent; font-family: 'Inter', sans-serif; border-radius: 2px;
         }
@@ -229,7 +229,7 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
-                <a href="login.html" class="btn btn-solid !py-2.5 !px-6 !text-[12px]">Login</a>
+                <a href="contact.html" class="btn btn-solid">Book Appointment</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
@@ -276,8 +276,7 @@
                 </div>
             </div>
             <div class="flex gap-4 w-full">
-                <a href="login.html" class="btn btn-outline flex-1 !py-3 !border-2">Login</a>
-                <a href="register.html" class="btn btn-solid flex-1 !py-3">Register</a>
+                <a href="contact.html" class="btn btn-solid flex-1">Book Appointment</a>
             </div>
         </div>
     </div>
@@ -306,10 +305,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="tel:+18005558973" class="btn btn-solid !py-4 !px-10 text-center">
+                    <a href="tel:+18005558973" class="btn btn-solid text-center">
                       <i class="fas fa-phone-alt mr-2" style="transform: rotate(90deg);"></i> Call Us Now
                     </a>
-                    <a href="#location" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black !py-4 !px-10 text-center">
+                    <a href="#location" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black text-center">
                         <i class="fas fa-map mr-2"></i> Find Our Branch
                     </a>
                 </div>
@@ -317,45 +316,73 @@
         </div>
     </section>
 
-    <!-- MAIN CONTENT: 5 RANDOM HOME PAGE SECTIONS -->
+    <!-- MAIN CONTENT -->
     <main class="w-full">
         
-        <!-- SECTION 1: Core Services (~50 lines) -->
-        <section class="w-full py-24 bg-[var(--bg-color)]">
+        <!-- SECTION 1: Location & Map -->
+        <section id="location" class="w-full py-24 bg-[var(--bg-color)] scroll-mt-20">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-[0.2em] block mb-2">Our Expertise</span>
-                    <h2 class="text-4xl md:text-5xl font-regular text-[var(--text-main)]">Premium Wheel Services</h2>
+                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-[0.2em] block mb-2">Visit Us</span>
+                    <h2 class="text-4xl md:text-5xl font-regular text-[var(--text-main)]">Find Our Branch</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mt-6"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-[var(--bg-card)] p-10 border border-[var(--border-color)] group hover:-translate-y-2 transition-transform duration-300 shadow-sm">
-                        <div class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center mb-6 group-hover:bg-[var(--accent-color)] transition-colors">
-                            <i class="fas fa-dharmachakra text-2xl text-[var(--text-main)] group-hover:text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-[var(--text-main)] mb-4">Expert Tyre Fitting</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8">Professional mounting and balancing for all vehicle types. We ensure perfect bead seating to prevent vibration and uneven wear on the road.</p>
-                        <a href="services.html" class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest hover:text-[var(--accent-dark)]">Learn More <i class="fas fa-chevron-right ml-1"></i></a>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-[var(--bg-card)] rounded-sm border border-[var(--border-color)] overflow-hidden shadow-sm">
+                    
+                    <!-- Contact Details Side -->
+                    <div class="p-8 md:p-12 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-[var(--border-color)]">
+                        <h3 class="text-2xl font-medium text-[var(--text-main)] mb-8">GripMaster Headquarters</h3>
+                        
+                        <ul class="space-y-8">
+                            <li class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-map-marker-alt text-[var(--accent-color)] text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-[var(--text-main)] font-medium mb-1">Address</h4>
+                                    <p class="text-[var(--text-muted)] text-sm leading-relaxed">128 Auto Hub Parkway<br>Industrial Zone, 90210</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-clock text-[var(--accent-color)] text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-[var(--text-main)] font-medium mb-1">Working Hours</h4>
+                                    <p class="text-[var(--text-muted)] text-sm leading-relaxed">Mon - Fri: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </li>
+                            
+                            <li class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center shrink-0">
+                                    <i class="fas fa-phone-alt text-[var(--accent-color)] text-lg" style="transform: rotate(90deg);"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-[var(--text-main)] font-medium mb-1">Contact</h4>
+                                    <p class="text-[var(--text-muted)] text-sm leading-relaxed">
+                                        <a href="tel:+18005558973" class="hover:text-[var(--accent-color)] transition-colors block mb-1">+1 (800) 555-TYRE</a>
+                                        <a href="mailto:service@gripmaster.com" class="hover:text-[var(--accent-color)] transition-colors block">service@gripmaster.com</a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                     
-                    <div class="bg-[var(--bg-card)] p-10 border border-[var(--border-color)] group hover:-translate-y-2 transition-transform duration-300 shadow-sm">
-                        <div class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center mb-6 group-hover:bg-[var(--accent-color)] transition-colors">
-                            <i class="fas fa-compress-arrows-alt text-2xl text-[var(--text-main)] group-hover:text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-[var(--text-main)] mb-4">3D Laser Alignment</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8">State-of-the-art diagnostic alignment perfectly corrects your steering geometry, saving fuel and dramatically extending your tyre lifespan.</p>
-                        <a href="services.html" class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest hover:text-[var(--accent-dark)]">Learn More <i class="fas fa-chevron-right ml-1"></i></a>
+                    <!-- Map Side -->
+                    <div class="w-full h-[400px] lg:h-auto min-h-[400px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.7152203584424!2d-118.40035632426053!3d34.04301747316024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb1bd16a1b63%3A0x6b81032ba61b17b6!2sBeverly%20Hills%2C%20CA%2090210!5e0!3m2!1sen!2sus!4v1709653896504!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(40%) contrast(1.1);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                     
-                    <div class="bg-[var(--bg-card)] p-10 border border-[var(--border-color)] group hover:-translate-y-2 transition-transform duration-300 shadow-sm">
-                        <div class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center mb-6 group-hover:bg-[var(--accent-color)] transition-colors">
-                            <i class="fas fa-tools text-2xl text-[var(--text-main)] group-hover:text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-medium text-[var(--text-main)] mb-4">Puncture & Repair</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8">Safe, reliable plug and patch repairs adhering to strict industry standards to get you safely back on the road in minutes, no hassle.</p>
-                        <a href="services.html" class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest hover:text-[var(--accent-dark)]">Learn More <i class="fas fa-chevron-right ml-1"></i></a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -407,7 +434,7 @@
                         <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-[0.2em] mb-4 block">Feedback</span>
                         <h2 class="text-4xl md:text-5xl font-regular text-[var(--text-main)]">What Our Drivers Say</h2>
                     </div>
-                    <a href="#" class="btn btn-outline text-sm !py-3 !px-6">View All Reviews</a>
+                    <a href="#" class="btn btn-outline text-sm">View All Reviews</a>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -418,7 +445,7 @@
                         </div>
                         <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 italic">"Incredible service! They correctly diagnosed my steering pull within minutes and had my alignment fixed flawlessly. Best garage in town."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-main)] font-heading font-bold text-lg">JD</div>
+                            <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-main)] font-heading font-semibold text-lg">JD</div>
                             <div>
                                 <h4 class="text-[var(--text-main)] font-medium text-sm">John Doe</h4>
                                 <span class="text-[var(--text-muted)] text-xs uppercase tracking-wider">BMW M3 Owner</span>
@@ -433,7 +460,7 @@
                         </div>
                         <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 italic">"Purchased a new set of Michelins. The team was incredibly fast, honest, and the pricing was exactly what they quoted over the phone."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-main)] font-heading font-bold text-lg">AS</div>
+                            <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-main)] font-heading font-semibold text-lg">AS</div>
                             <div>
                                 <h4 class="text-[var(--text-main)] font-medium text-sm">Alice Smith</h4>
                                 <span class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Toyota Camry Owner</span>
@@ -448,7 +475,7 @@
                         </div>
                         <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 italic">"Clean waiting room, free coffee, and total transparency. They showed me the alignment readouts before and after. Highly trustworthy."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-main)] font-heading font-bold text-lg">MR</div>
+                            <div class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--text-main)] font-heading font-semibold text-lg">MR</div>
                             <div>
                                 <h4 class="text-[var(--text-main)] font-medium text-sm">Mike Ross</h4>
                                 <span class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Ford F-150 Owner</span>
@@ -513,10 +540,10 @@
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                            <a href="contact.html" class="btn btn-solid !py-3 !px-8">
+                            <a href="contact.html" class="btn btn-solid">
                                 Book Appointment
                             </a>
-                            <a href="tel:+18005558973" class="btn btn-outline !py-3 !px-8 flex items-center justify-center gap-2">
+                            <a href="tel:+18005558973" class="btn btn-outline flex items-center justify-center gap-2">
                                 <i class="fas fa-phone-alt" style="transform: scaleX(-1);"></i> 1-800-555-TYRE
                             </a>
                         </div>
@@ -553,7 +580,7 @@
                         <div>
                             <h4>Client Portals</h4>
                             <ul class="space-y-4">
-                                <li><a href="login.html">Customer Login</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                                 <li><a href="pricing.html">Service Pricing</a></li>
                                 <li><a href="faq.html">FAQ & Tyre Care</a></li>
                             </ul>

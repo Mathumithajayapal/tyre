@@ -159,7 +159,7 @@
 
         /* === BUTTON DESIGN === */
         .btn { 
-            padding: 14px 32px; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; 
+            padding: 10px 24px; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; 
             transition: all 0.4s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
             border: 1px solid transparent; font-family: 'Inter', sans-serif; border-radius: 2px;
         }
@@ -229,7 +229,7 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
-                <a href="login.html" class="btn btn-solid !py-2.5 !px-6 !text-[12px]">Login</a>
+                <a href="contact.html" class="btn btn-solid">Book Appointment</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
@@ -276,8 +276,7 @@
                 </div>
             </div>
             <div class="flex gap-4 w-full">
-                <a href="login.html" class="btn btn-outline flex-1 !py-3 !border-2">Login</a>
-                <a href="register.html" class="btn btn-solid flex-1 !py-3">Register</a>
+                <a href="contact.html" class="btn btn-solid flex-1">Book Appointment</a>
             </div>
         </div>
     </div>
@@ -306,10 +305,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="#latest-articles" class="btn btn-solid !py-4 !px-10 text-center">
+                    <a href="#latest-articles" class="btn btn-solid text-center">
                         <i class="fas fa-book-open mr-2"></i> Read Articles
                     </a>
-                    <a href="contact.html" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black !py-4 !px-10 text-center">
+                    <a href="contact.html" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black text-center">
                         <i class="fas fa-envelope-open-text mr-2"></i> Subscribe
                     </a>
                 </div>
@@ -343,7 +342,7 @@
                         As temperatures drop, your vehicle's connection to the road becomes more critical than ever. Discover the essential steps to prepare your wheels for icy conditions, understand tread wear indicators, and know exactly when it's time to switch to winter tyres.
                     </p>
                     <div>
-                        <a href="#" class="btn btn-solid !py-3 !px-8 inline-flex items-center gap-2">Read Full Article <i class="fas fa-arrow-right text-xs"></i></a>
+                        <a href="#" class="btn btn-solid inline-flex items-center gap-2">Read Full Article <i class="fas fa-arrow-right text-xs"></i></a>
                     </div>
                 </div>
             </div>
@@ -371,12 +370,14 @@
     <!-- SECTION 2: LATEST ARTICLES GRID -->
     <section class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-            <div class="flex justify-between items-end mb-12">
+            <!-- FIX: Adjusted to flex-col on mobile for proper stacking, flex-row on larger screens, and vertically centered (items-center) -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-12">
                 <div>
                     <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-2 uppercase font-heading"><i class="fas fa-clock mr-2"></i> Recent Posts</h5>
-                    <h2 class="text-3xl lg:text-4xl font-medium uppercase text-[var(--text-main)]">Latest Articles</h2>
+                    <h2 class="text-3xl lg:text-4xl font-medium uppercase text-[var(--text-main)] m-0">Latest Articles</h2>
                 </div>
-                <a href="#" class="hidden md:inline-flex text-sm font-medium text-[var(--accent-color)] uppercase tracking-wider hover:underline">View All &rarr;</a>
+                <!-- FIX: Removed 'hidden' so the button aligns correctly on mobile devices too -->
+                <a href="#" class="inline-flex text-sm font-medium text-[var(--accent-color)] uppercase tracking-wider hover:underline mt-2 sm:mt-0">View All &rarr;</a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
@@ -485,7 +486,7 @@
                     <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-4 uppercase font-heading"><i class="fas fa-fire mr-2"></i> Most Read</h5>
                     <h2 class="text-4xl font-medium uppercase mb-6 text-[var(--text-main)]">Trending Now</h2>
                     <p class="text-[var(--text-muted)] font-light mb-8">Discover what other drivers and automotive enthusiasts are reading this week on our platform.</p>
-                    <a href="#" class="btn btn-outline !py-3 !px-8">View Archive</a>
+                    <a href="#" class="btn btn-outline">View Archive</a>
                 </div>
                 <div class="w-full lg:w-2/3 flex flex-col gap-6">
                     <a href="#" class="flex gap-6 items-center bg-[var(--bg-card)] p-4 border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors group">
@@ -549,7 +550,7 @@
             <div class="w-full lg:w-1/2">
                 <form action="#" method="POST" class="flex flex-col sm:flex-row gap-4 w-full">
                     <input type="email" placeholder="Enter your email address..." required class="w-full bg-black/40 border border-white/20 text-white px-6 py-4 outline-none focus:border-[var(--accent-color)] transition-colors placeholder:text-slate-500 font-light rounded-none">
-                    <button type="submit" class="btn btn-solid !py-4 !px-8 shrink-0">Subscribe Now</button>
+                    <button type="submit" class="btn btn-solid shrink-0">Subscribe Now</button>
                 </form>
                 <p class="text-slate-400 text-xs mt-4 uppercase tracking-wider font-heading">
                     <i class="fas fa-lock mr-1 text-[var(--accent-color)]"></i> Your data is secure with us.
@@ -604,7 +605,7 @@
                         <div>
                             <h4>Client Portals</h4>
                             <ul class="space-y-4">
-                                <li><a href="login.html">Customer Login</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                                 <li><a href="pricing.html">Service Pricing</a></li>
                                 <li><a href="faq.html">FAQ & Tyre Care</a></li>
                             </ul>

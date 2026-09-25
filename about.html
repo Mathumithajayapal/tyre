@@ -95,7 +95,7 @@
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             background: var(--nav-bg); 
             border-bottom: 1px solid var(--border-color);
-            padding: 0 32px; height: 90px; display: flex; align-items: center;
+            padding: 0 16px; height: 90px; display: flex; align-items: center;
             transition: all 0.5s ease;
         }
 
@@ -159,7 +159,7 @@
 
         /* === BUTTON DESIGN === */
         .btn { 
-            padding: 14px 32px; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; 
+            padding: 10px 24px; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; 
             transition: all 0.4s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
             border: 1px solid transparent; font-family: 'Inter', sans-serif; border-radius: 2px;
         }
@@ -229,7 +229,7 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-1"></div>
-                <a href="login.html" class="btn btn-solid !py-2.5 !px-6 !text-[12px]">Login</a>
+                <a href="contact.html" class="btn btn-solid">Book Appointment</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
@@ -276,8 +276,7 @@
                 </div>
             </div>
             <div class="flex gap-4 w-full">
-                <a href="login.html" class="btn btn-outline flex-1 !py-3 !border-2">Login</a>
-                <a href="register.html" class="btn btn-solid flex-1 !py-3">Register</a>
+                <a href="contact.html" class="btn btn-solid flex-1">Book Appointment</a>
             </div>
         </div>
     </div>
@@ -290,13 +289,13 @@
             <div class="absolute inset-0 bg-gradient-to-r from-[var(--bg-inverted)] via-black/70 to-transparent"></div>
         </div>
 
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full flex flex-col items-start justify-center relative z-10">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12 w-full flex flex-col items-start justify-center relative z-10">
             <div class="max-w-3xl">
                 <span class="text-[var(--accent-color)] text-sm font-medium uppercase tracking-[0.2em] mb-4 inline-block bg-[var(--bg-inverted)]/50 px-4 py-2 border-l-4 border-[var(--accent-color)]">
                     <i class="fas fa-users mr-2"></i> Our Story & Mission
                 </span>
                 
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] mb-6 text-white uppercase tracking-tight">
+                <h1 class="text-4xl md:text-6xl xl:text-7xl font-medium leading-[1.1] mb-6 text-white uppercase tracking-tight">
                     Driven by <span class="text-[var(--accent-color)]">Passion</span> <br class="hidden sm:block">
                     & Precision.
                 </h1>
@@ -306,10 +305,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="contact.html" class="btn btn-solid !py-4 !px-10 text-center">
+                    <a href="contact.html" class="btn btn-solid text-center">
                         <i class="fas fa-envelope mr-2"></i> Contact Us
                     </a>
-                    <a href="services.html" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black !py-4 !px-10 text-center">
+                    <a href="services.html" class="btn btn-outline !border-2 !border-white !text-white hover:!bg-white hover:!text-black text-center">
                         <i class="fas fa-cogs mr-2"></i> Our Services
                     </a>
                 </div>
@@ -319,12 +318,12 @@
 
     <!-- SECTION 1: OUR HISTORY -->
     <section class="py-24 bg-[var(--bg-color)]">
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-4">
                     <i class="fas fa-history mr-2"></i> Our Journey
                 </h5>
-                <h2 class="text-4xl lg:text-5xl font-medium uppercase mb-4">
+                <h2 class="text-4xl xl:text-5xl font-medium uppercase mb-4">
                     A Legacy of Quality
                 </h2>
                 <p class="text-[var(--text-muted)] font-light">
@@ -365,9 +364,9 @@
 
     <!-- SECTION 2: CORE VALUES -->
     <section class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-            <div class="flex flex-col lg:flex-row gap-16">
-                <div class="lg:w-1/3">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12">
+            <div class="flex flex-col xl:flex-row gap-16">
+                <div class="xl:w-1/3">
                     <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-4">
                         <i class="fas fa-gem mr-2"></i> Core Principles
                     </h5>
@@ -377,28 +376,128 @@
                     <p class="text-[var(--text-muted)] font-light mb-8">
                         Our commitment to excellence isn't just a slogan—it's woven into every service we provide.
                     </p>
-                    <a href="services.html" class="btn btn-outline !py-3 !px-8">See Our Work</a>
+                    <a href="services.html" class="btn btn-outline">See Our Work</a>
                 </div>
-                <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div class="bg-[var(--bg-card)] p-8 border border-[var(--border-color)] hover:shadow-lg transition-shadow">
-                        <i class="fas fa-shield-cat text-3xl text-[var(--accent-color)] mb-4"></i>
-                        <h3 class="text-xl font-medium uppercase mb-3">Uncompromising Safety</h3>
-                        <p class="text-[var(--text-muted)] text-sm font-light">We never cut corners. Your safety on the road is our ultimate priority.</p>
+                <div class="xl:w-2/3 grid grid-cols-1 sm:grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+                    <div class="bg-[var(--bg-card)] border border-[var(--border-color)] hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+                        <div class="h-40 w-full relative overflow-hidden">
+                            <img src="image/tyreshop (8).jpg" alt="Uncompromising Safety" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-shield-cat text-2xl text-[var(--accent-color)]"></i>
+                                <h3 class="text-lg font-medium uppercase m-0">Uncompromising Safety</h3>
+                            </div>
+                            <p class="text-[var(--text-muted)] text-sm font-light mb-4">We never cut corners. Your safety on the road is our ultimate priority and drives every decision we make in the shop.</p>
+                            <ul class="text-[var(--text-muted)] text-sm font-light space-y-1 mt-auto">
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Strict safety protocols</li>
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Thorough inspections</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="bg-[var(--bg-card)] p-8 border border-[var(--border-color)] hover:shadow-lg transition-shadow">
-                        <i class="fas fa-award text-3xl text-[var(--accent-color)] mb-4"></i>
-                        <h3 class="text-xl font-medium uppercase mb-3">Premium Quality</h3>
-                        <p class="text-[var(--text-muted)] text-sm font-light">We exclusively stock trusted brands and use top-tier equipment.</p>
+                    
+                    <div class="bg-[var(--bg-card)] border border-[var(--border-color)] hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+                        <div class="h-40 w-full relative overflow-hidden">
+                            <img src="image/tyreshop (9).jpg" alt="Premium Quality" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-award text-2xl text-[var(--accent-color)]"></i>
+                                <h3 class="text-lg font-medium uppercase m-0">Premium Quality</h3>
+                            </div>
+                            <p class="text-[var(--text-muted)] text-sm font-light mb-4">We exclusively stock trusted brands and use top-tier equipment to ensure maximum performance and longevity.</p>
+                            <ul class="text-[var(--text-muted)] text-sm font-light space-y-1 mt-auto">
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Authorized dealer</li>
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Guaranteed authentic</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="bg-[var(--bg-card)] p-8 border border-[var(--border-color)] hover:shadow-lg transition-shadow">
-                        <i class="fas fa-handshake text-3xl text-[var(--accent-color)] mb-4"></i>
-                        <h3 class="text-xl font-medium uppercase mb-3">Honest Pricing</h3>
-                        <p class="text-[var(--text-muted)] text-sm font-light">No hidden fees, no unnecessary upsells. Just transparent service rates.</p>
+                    
+                    <div class="bg-[var(--bg-card)] border border-[var(--border-color)] hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+                        <div class="h-40 w-full relative overflow-hidden">
+                            <img src="image/tyreshop (10).jpg" alt="Honest Pricing" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-handshake text-2xl text-[var(--accent-color)]"></i>
+                                <h3 class="text-lg font-medium uppercase m-0">Honest Pricing</h3>
+                            </div>
+                            <p class="text-[var(--text-muted)] text-sm font-light mb-4">No hidden fees, no unnecessary upsells. Just transparent service rates that respect your budget.</p>
+                            <ul class="text-[var(--text-muted)] text-sm font-light space-y-1 mt-auto">
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Upfront estimates</li>
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Price match guarantee</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="bg-[var(--bg-card)] p-8 border border-[var(--border-color)] hover:shadow-lg transition-shadow">
-                        <i class="fas fa-bolt text-3xl text-[var(--accent-color)] mb-4"></i>
-                        <h3 class="text-xl font-medium uppercase mb-3">Rapid Turnaround</h3>
-                        <p class="text-[var(--text-muted)] text-sm font-light">We value your time and work efficiently to get you back driving.</p>
+                    
+                    <div class="bg-[var(--bg-card)] border border-[var(--border-color)] hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+                        <div class="h-40 w-full relative overflow-hidden">
+                            <img src="image/tyreshop (11).jpg" alt="Rapid Turnaround" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-bolt text-2xl text-[var(--accent-color)]"></i>
+                                <h3 class="text-lg font-medium uppercase m-0">Rapid Turnaround</h3>
+                            </div>
+                            <p class="text-[var(--text-muted)] text-sm font-light mb-4">We value your time and work efficiently to get you back driving without compromising on the quality of our work.</p>
+                            <ul class="text-[var(--text-muted)] text-sm font-light space-y-1 mt-auto">
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Fast track service</li>
+                                <li><i class="fas fa-check text-[var(--accent-color)] mr-2"></i> Same-day completion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.5: OUR EXPERTISE / SERVICES DETAIL -->
+    <section class="py-24 bg-[var(--bg-color)]">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-4">
+                    <i class="fas fa-cogs mr-2"></i> What We Do
+                </h5>
+                <h2 class="text-4xl xl:text-5xl font-medium uppercase mb-6">
+                    Our Automotive Expertise
+                </h2>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed">
+                    Beyond just selling tyres, GripMaster provides comprehensive wheel and suspension care. Our certified technicians use state-of-the-art equipment to ensure your vehicle is safe, efficient, and perfectly balanced for the road ahead.
+                </p>
+            </div>
+            
+            <div class="flex flex-col gap-16">
+                <!-- Expertise 1: Tyres -->
+                <div class="flex flex-col xl:flex-row gap-10 items-center">
+                    <div class="w-full xl:w-1/2 h-80 overflow-hidden border border-[var(--border-color)] relative group">
+                        <img src="image/tyreshop (12).jpg" alt="Premium Tyre Selection and Fitting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+                    <div class="w-full xl:w-1/2">
+                        <h3 class="text-3xl font-medium uppercase mb-4 text-[var(--text-main)]">Premium Tyre Fitting & Replacement</h3>
+                        <p class="text-[var(--text-muted)] font-light mb-6 leading-relaxed">We don't just mount rubber on wheels. We analyze your driving habits, vehicle specifications, and typical weather conditions to recommend the perfect tyre compound and tread pattern. From run-flats and all-season touring to high-performance summer tyres, we handle precision mounting, computerized road-force balancing, and nitrogen inflation to maximize your tread life and comfort.</p>
+                        <ul class="text-[var(--text-muted)] font-light space-y-3 text-sm">
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[var(--accent-color)] mt-1"></i> <span><strong>Extensive Inventory:</strong> Immediate access to premium, mid-range, and budget tyre brands.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[var(--accent-color)] mt-1"></i> <span><strong>Advanced Balancing:</strong> Eliminates high-speed steering wheel vibrations.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[var(--accent-color)] mt-1"></i> <span><strong>Eco-Friendly Disposal:</strong> Responsible recycling of your old tyres.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Expertise 2: Alignment -->
+                <div class="flex flex-col xl:flex-row-reverse gap-10 items-center">
+                    <div class="w-full xl:w-1/2 h-80 overflow-hidden border border-[var(--border-color)] relative group">
+                        <img src="image/tyreshop (7).jpg" alt="3D Laser Wheel Alignment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+                    <div class="w-full xl:w-1/2">
+                        <h3 class="text-3xl font-medium uppercase mb-4 text-[var(--text-main)]">3D Laser Wheel Alignment</h3>
+                        <p class="text-[var(--text-muted)] font-light mb-6 leading-relaxed">Misaligned wheels cause rapid, uneven tyre wear, poor fuel economy, and dangerous handling issues. Our technicians use advanced 3D laser alignment racks to measure and adjust your vehicle's caster, camber, and toe angles down to the millimeter. This restores your vehicle's suspension geometry exactly to the manufacturer's factory specifications.</p>
+                        <ul class="text-[var(--text-muted)] font-light space-y-3 text-sm">
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[var(--accent-color)] mt-1"></i> <span><strong>Improves Handling:</strong> Prevents your vehicle from pulling to one side.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[var(--accent-color)] mt-1"></i> <span><strong>Protects Investment:</strong> Significantly extends the lifespan of your new tyres.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[var(--accent-color)] mt-1"></i> <span><strong>Suspension Check:</strong> Includes a comprehensive pre-alignment suspension inspection.</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -406,13 +505,13 @@
     </section>
 
     <!-- SECTION 3: MEET THE TEAM -->
-    <section class="py-24 bg-[var(--bg-color)]">
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <section class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-color)]">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h5 class="text-[var(--accent-color)] text-sm tracking-[0.2em] mb-4">
                     <i class="fas fa-users-cog mr-2"></i> The Experts
                 </h5>
-                <h2 class="text-4xl lg:text-5xl font-medium uppercase mb-4">
+                <h2 class="text-4xl xl:text-5xl font-medium uppercase mb-4">
                     Our Master Technicians
                 </h2>
                 <p class="text-[var(--text-muted)] font-light">
@@ -450,8 +549,8 @@
         <div class="absolute inset-0 opacity-10">
             <img src="image/tyreshop (5).jpg" alt="Abstract" class="w-full h-full object-cover" />
         </div>
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/20">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 text-center divide-y xl:divide-y-0 xl:divide-x divide-white/20">
                 <div class="pt-8 lg:pt-0">
                     <i class="fas fa-trophy text-4xl text-[var(--accent-color)] mb-4"></i>
                     <h3 class="text-5xl font-heading text-white mb-2">25+</h3>
@@ -478,25 +577,39 @@
 
     <!-- SECTION 5: TRUSTED PARTNERS -->
     <section class="py-16 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12 text-center">
             <h5 class="text-[var(--text-muted)] text-xs tracking-[0.2em] mb-10 uppercase font-heading">
                 Authorized Dealers For Leading Brands
             </h5>
-            <div class="flex flex-wrap justify-center gap-12 lg:gap-20 opacity-60">
-                <div class="text-3xl font-heading font-bold text-[var(--text-main)] grayscale hover:grayscale-0 transition-all hover:opacity-100 hover:text-[var(--accent-color)] cursor-pointer">
-                    MICHELIN
+            <div class="flex flex-wrap justify-center gap-10 md:gap-16 lg:gap-20 items-end opacity-70">
+                <div class="flex flex-col items-center gap-3 hover:opacity-100 hover:scale-110 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Michelin_Wordmark.svg" 
+                         alt="Michelin" class="h-8 md:h-12 w-auto object-contain">
+                    <span class="text-sm md:text-lg font-semibold font-heading text-[var(--text-main)] tracking-widest">MICHELIN</span>
                 </div>
-                <div class="text-3xl font-heading font-bold text-[var(--text-main)] grayscale hover:grayscale-0 transition-all hover:opacity-100 hover:text-[var(--accent-color)] cursor-pointer">
-                    PIRELLI
+                
+                <div class="flex flex-col items-center gap-3 hover:opacity-100 hover:scale-110 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Pirelli_-_logo_black_%28Italy%2C_1970%29.svg" 
+                         alt="Pirelli" class="h-5 md:h-8 w-auto object-contain mb-1 md:mb-2">
+                    <span class="text-sm md:text-lg font-semibold font-heading text-[var(--text-main)] tracking-widest">PIRELLI</span>
                 </div>
-                <div class="text-3xl font-heading font-bold text-[var(--text-main)] grayscale hover:grayscale-0 transition-all hover:opacity-100 hover:text-[var(--accent-color)] cursor-pointer">
-                    GOODYEAR
+                
+                <div class="flex flex-col items-center gap-3 hover:opacity-100 hover:scale-110 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Goodyear_Logo_2025.svg" 
+                         alt="Goodyear" class="h-6 md:h-10 w-auto object-contain">
+                    <span class="text-sm md:text-lg font-semibold font-heading text-[var(--text-main)] tracking-widest">GOODYEAR</span>
                 </div>
-                <div class="text-3xl font-heading font-bold text-[var(--text-main)] grayscale hover:grayscale-0 transition-all hover:opacity-100 hover:text-[var(--accent-color)] cursor-pointer">
-                    BRIDGESTONE
+                
+                <div class="flex flex-col items-center gap-3 hover:opacity-100 hover:scale-110 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Bridgestone_logo.svg" 
+                         alt="Bridgestone" class="h-5 md:h-8 w-auto object-contain">
+                    <span class="text-sm md:text-lg font-semibold font-heading text-[var(--text-main)] tracking-widest">BRIDGESTONE</span>
                 </div>
-                <div class="text-3xl font-heading font-bold text-[var(--text-main)] grayscale hover:grayscale-0 transition-all hover:opacity-100 hover:text-[var(--accent-color)] cursor-pointer">
-                    CONTINENTAL
+                
+                <div class="flex flex-col items-center gap-3 hover:opacity-100 hover:scale-110 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer p-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Continental_logo.svg" 
+                         alt="Continental" class="h-5 md:h-8 w-auto object-contain mb-1">
+                    <span class="text-sm md:text-lg font-semibold font-heading text-[var(--text-main)] tracking-widest">CONTINENTAL</span>
                 </div>
             </div>
         </div>
@@ -504,9 +617,9 @@
 
     <!-- FOOTER PART -->
     <footer>
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="max-w-[1440px] mx-auto px-6 xl:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
-                <div class="lg:col-span-4">
+                <div class="xl:col-span-4">
                     <div class="mb-8">
                         <a href="index.html" class="text-3xl font-medium brand-logo tracking-wide block text-white" style="text-decoration: none;">
                             <i class="fas fa-dharmachakra" style="color: var(--accent-color); margin-right: 0.2em; font-size: 0.9em; vertical-align: middle;"></i>GripMaster
@@ -522,12 +635,12 @@
                     </div>
                 </div>
                 
-                <div class="lg:col-span-8">
+                <div class="xl:col-span-8">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
                         <div>
                             <h4>Client Portals</h4>
                             <ul class="space-y-4">
-                                <li><a href="login.html">Customer Login</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                                 <li><a href="pricing.html">Service Pricing</a></li>
                                 <li><a href="faq.html">FAQ & Tyre Care</a></li>
                             </ul>
@@ -647,3 +760,4 @@
     </script>
 </body>
 </html>
+
